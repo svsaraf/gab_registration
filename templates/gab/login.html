@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rango</title>
+    </head>
+
+    <body>
+        
+        {% if user.is_authenticated %}
+            <h1>Rango says hello {{ user.first_name }} </h1>
+        {% else %}
+            <h1>Login to Rango</h1>
+
+            <form id="login_form" method="post" action="/login/">
+            {% csrf_token %}
+            Username: <input type="text" name="username" value="" size="50" />
+            <br />
+            Password: <input type="password" name="password" value="" size="50" />
+            <br />
+
+            <input type="submit" value="submit" />
+            </form>
+
+        {% endif %}
+
+        
+    </body>
+</html>
